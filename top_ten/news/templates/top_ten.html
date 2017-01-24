@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hacker news</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    h2 {
+        color: #FF0000;
+      }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2 color="red">Top Ten News</h2>
+  <br/>
+  <table class="table" border=2 >
+    <thead>
+      <tr>
+        <th width="60%">Title</th>
+        <th width="20%">By</th>
+        <th width="20%">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for key, value in res.items %}
+    	<tr>
+      {% if "url" not in value %}
+ 			<td><a href="/HN/new_discr/?qry={{ value.id }}">{{ value.title }}</a></td>
+      {% endif %}
+      <td><a href="{{value.url}}">{{ value.title }}</a></td>
+ 			<td>{{ value.by }}</td>
+    	<td>{{ value.score }}</td>
+    	</tr>
+    	{% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

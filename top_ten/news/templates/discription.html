@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ disc.title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  div {
+    background-color: lightgrey;
+    width: 500px;
+    height: 400px;
+}</style>	
+</head>
+<body>
+
+	<h1>{{ disc.title }}</h1>
+	<br>
+	<pre>created on:{{ disc.time }}                                 author:{{ disc.by }}        </pre>           
+	<div style="background-color:white;color:black;padding:20px;">
+	{% if "text" not in disc %}
+	<p><h4><paragraph> Empty news  : There is nothing about this story<br/>
+		only title and other informations are available 
+		follow url for more about {{disc.type}}</paragraph></h4></p>
+	{% endif %}
+	<p><h3><paragraph>{{ disc.text }}</paragraph></h3></p>
+	</div>
+	<a href="{{disc.url}}">{{ disc.url }}</a></h6>
+	<pre class="para" >type:{{ disc.type }}                                 comments:{{ disc.descendants }}        </pre> 
+
+
+</div>
+
+</body>
+</html>
